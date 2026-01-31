@@ -2,9 +2,10 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
 \newcommand{\sectionbreak}{\clearpage}
 
-\title{LaTeX Test Cases}
+\title{Logic and Reasoning Mastery Workbook}
 \author{Joe Ricks}
 \date{\today}
 
@@ -12,9 +13,12 @@
 
 \maketitle
 
+\textbf{\Huge I have neither given nor received unauthorized assistance.}
+
+\clearpage
 \section{Problem 1}
 
-Translate the tablets below and answer the questions on the next page.
+(20pts) Translate the tablets below and answer the questions on the next page.
 Submit just the second page with your solutions
 
 \begin{itemize}
@@ -47,6 +51,15 @@ accept as true. We are using inductive reasoning. We observed specific instances
 
 \section{Problem 2}
 
+In the Rosen Book, page 8, buried in a bunch of words are some essential ideas we will
+use again and again this semester. You should know these and be ready.
+(10pts) Write the definitions of converse, contrapositive, and the inverse in a format that
+is useful for you to reference - make a poster, index cards, or even make notes in your
+book. Include a photo of this in your homework on this page (small is fine).
+
+\bigskip
+Sorry I needed the photo to be a separate page! I don't have the PDF editor to embed it into the document directly.
+
 \clearpage
 
 \section{Problem 3}
@@ -61,12 +74,99 @@ your example.
     \item Contrapositive: If a student does not pass the exam, then they did not study hard.
     \item Inverse: If a student does not study hard, then they will not pass the exam.
 \end{itemize}
+\bigskip
+For my own conditional statement, I will choose something applicable to my life as a coffee enthusiast:
+
+\begin{itemize}
+    \item Original Statement: If I drink coffee in the morning, then I feel more awake during the day. 
+    \item Converse: If I feel more awake during the day, then I drank coffee in the morning.
+    \item Contrapositive: If I do not feel more awake during the day, then I did not drink coffee in the morning.
+    \item Inverse: If I do not drink coffee in the morning, then I do not feel more awake during the day.
+\end{itemize}
+
+
 
 \clearpage
 
 \section{Problem 4}
 
 (10pts) Construct the Truth Tables from Rosen page 15 \#31.
+
+\medskip
+
+In  Rosen page 15 \#31, we must construct truth tables for the following statements:
+
+\begin{enumerate}[label=\alph*)]
+\item $p \land \neg p$
+\smallbreak
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    p & $\neg p$ & $p \land \neg p$ \\
+    \hline
+    T & F & F \\
+    F & T & F \\
+\end{tabular}
+
+\item $p \lor \neg p$
+
+\smallbreak
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    p & $\neg p$ & $p \lor \neg p$ \\
+    \hline
+    T & F & T \\
+    F & T & T \\
+\end{tabular}
+
+\item $(p \lor \neg q) \rightarrow q$
+\smallbreak
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    p & q & $\neg q$ & $p \lor \neg q$ & $(p \lor \neg q) \rightarrow q$ \\
+    \hline
+    T & T & F & T & T \\
+    T & F & T & T & F \\
+    F & T & F & F & T \\
+    F & F & T & T & F \\
+\end{tabular}
+\item $(p \lor q) \rightarrow (p \land q)$
+\smallbreak
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    p & q & $p \lor q$ & $p \land q$ & $(p \lor q) \rightarrow (p \land q)$ \\
+    \hline
+    T & T & T & T & T \\
+    T & F & T & F & F \\
+    F & T & T & F & F \\
+    F & F & F & F & T \\
+\end{tabular}
+\item $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$
+\smallbreak
+\begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    p & q & $p \rightarrow q$ & $\neg q$ & $\neg p$ & $\neg q \rightarrow \neg p$ & $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ \\
+    \hline
+    T & T & T & F & F & T & T \\
+    T & F & F & T & F & F & T \\
+    F & T & T & F & T & T & T \\
+    F & F & T & T & T & T & T \\
+\end{tabular}
+\item $(p \rightarrow q) \rightarrow (q \rightarrow p)$
+\smallbreak
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    p & q & $p \rightarrow q$ & $q \rightarrow p$ & $(p \rightarrow q) \rightarrow (q \rightarrow p)$ \\
+    \hline
+    T & T & T & T & T \\
+    T & F & F & T & T \\
+    F & T & T & F & F \\
+    F & F & T & T & T \\
+\end{tabular}
+\end{enumerate}
+
 
 \clearpage
 
@@ -77,18 +177,30 @@ and “White and White.” Each box contains 2 marbles which can be either red o
 The labels on each box are incorrect (although the labels would be correct if you
 switched them around). You are allowed to peek inside one box and look at exactly one
 marble in that box \- and see if it is red or white.
-
+\bigbreak
 1. After this, can you figure out what is in each box and fix the labels to be correct?
 
+{\bf Yes}, if we break down the problem, all labels are incorrect. This means that if you open the box labeled "Red and White", whatever marble you see you know is either "Red and Red" or "White and White". Then, once you know whether the box is "Red and Red" or "White and White", you can deduce the other boxes just by swapping the labels since we know the other box is also wrong. In order to illustrate this, lets say we selected a red marble from the box labeled "Red and White". This means that this box must be "Red and Red". Therefore, the box labeled "White and White" must actually be "Red and White", and the box labeled "Red and Red" must actually be "White and White".
+\bigbreak
 2. Does it matter which box you choose to open at the start?
 
+Yes, you should choose the box labeled "Red and White", because whatever marble you select from that box you know will give you enough information to classify the box correctly (see reasoning in question 1). If you were to select either of the other boxes first, you would not have enough information to deduce the contents of all boxes.
+\bigbreak
 3. Are you using inductive or deductive reasoning?
 
+Here we are using deductive reasoning. We are using logic to draw conclusions from the information we have (the incorrect labels and the color of the marble we see) to determine the correct contents of each box.
+\bigbreak
 4. Can you be sure of your answer?
+
+Yes, we can be sure of our answer because the reasoning is based on logical deduction from the initial conditions (all labels are incorrect) and the observation made (the color of the marble seen). The process leads to a definitive conclusion about the contents of each box.
 
 \clearpage
 
-\section{Problem 6}
+\section{Problem 6} 
+(15pts) At a famous pizza place, Albert, Bob, and Jose are asked by a waiter, “Does everybody want water?” Albert says “I don’t know.” Bob then says, “I don’t know.” Jose says, “Not everyone wants water.” The waiter returns and brings correctly each person what they wanted. Which people got water?
+
+\bigbreak
+Let us use prepositional logic to break down this problem. Let A represent "Albert wants water", B represent "Bob wants water", and J represent "Jose wants water". The waiter's question can be represented as $A \land B \land J$ (Does everybody want water?). Based on Jose's response, we know that not everyone wants water, therefore, at least one of A, B, or J is false. We also know that there is only one configuration total that represents the interests of all three people. Now assuming Jose is not a mindreader, we can say that Jose does not want water. This is because if both Albert and Bob wanted water, Jose would have known that everyone wanted water and would not have said "Not everyone wants water." Therefore, we can conclude that Jose does not want water (J is false). Also, since Bob answered second with "I don't know", we can conclude that Bob wanted water. This is because if Bob did not want water, then he would have said "Not everyone wants water" just like Jose did. Therefore, we can conclude that Bob wants water (B is true). Finally, since Albert answered first with "I don't know", we can conclude that Albert also wanted water. This is because if Albert did not want water, then he would have said "Not everyone wants water" just like Jose did. Therefore, we can conclude that Albert wants water (A is true). In summary, Albert and Bob got water, while Jose did not.
 
 \clearpage
 
@@ -97,12 +209,45 @@ marble in that box \- and see if it is red or white.
 (10 pts) Let’s do a simple deductive proof that a negative number times a negative
 number is a positive number.
 
+Prove (-a)(-b) = ab.
+
+To prove this, we will use the same properties as displayed in the mastery workbook.
+
+We may assume the following properties:
+\begin{itemize}
+    \item Basic principles of algebra as defined in Appendix A and videos.
+    \item FOIL
+    \item A negative number times a positive number is negative.
+\end{itemize}
+
+Using these properties, we show that:
+\begin{align*}
+1. & \quad 0 = 0 \cdot 0 \quad \text{(Property of Zeros)} \\
+2. & \quad 0 = (a - a)\cdot (b - b) \quad \text{(By the definition of inverses)} \\
+3. & \quad 0 = ab - ab - a b + (-a)(-b) \quad \text{(By FOIL and multiplication)} \\
+4. & \quad ab = ab - ab + (-a)(-b) \quad \text{(Adding ab to both sides of the equation via basic algebra)} \\
+5. & \quad ab = (-a)(-b) \quad \text{(By simplification via subtraction of the expression $ab - ab$ (using basic algebra))}
+\end{align*}
+Thus, we have shown that (-a)(-b) = ab.
+\hfill $\square$
 \clearpage
 
 \section{Problem 8}
 
 (10 pts) Compare the proof in the previous question to the car example video in Moodle.
 Both show “a negative times a negative is a positive.”
+
+\begin{itemize}
+    \item Which method is inductive reasoning?
+    \medbreak
+    The car example video uses inductive reasoning. It uses the car and its relative position as a real world analogy to illustrate the concept of multiplication of negative numbers using the relative position and direction of a car in Colorado, where Denver is the origin, and north and south are positive and negative directions respectively. By observing the car's movement in this context, we can generalize the concept that a negative times a negative results in a positive.
+    \item Which method is deductive reasoning?
+    \medbreak
+    The algebraic proof in the previous question uses deductive reasoning. It starts with known axioms and applies logical steps to derive the conclusion that (-a)(-b) = ab.
+    \item Which method is more convincing to you?
+    \medbreak
+    For me the algebraic proof is more convincing for the purpose of multiplication of negative numbers. This is because simple algebraic axioms can more easily draw you to the desired result without a real world analogy. However, I do think that for actually defining and understanding axioms themselves (like understanding the definition of 0 or multiplication), inductive reasoning is much more useful.
+\end{itemize}
 
 \clearpage
 
