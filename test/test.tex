@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\title{LaTeX Test Cases}
+\author{Test Suite}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Basic Test Cases}
+
+This is a simple paragraph with some text to test basic formatting.
+
+Here's an equation: $E = mc^2$
+
+\subsection{Lists}
+
+\begin{itemize}
+    \item First item
+    \item Second item
+    \item Third item
+    \item Fourth item
+\end{itemize}
+
+\section{Complicated Test Cases}
+
+\subsection{Complex Mathematical Expression}
+
+Consider the following integral:
+\[
+    \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx = 1
+\]
+
+And a more complex matrix operation:
+\[
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        b_1 \\ b_2 \\ \vdots \\ b_m
+    \end{bmatrix}
+\]
+
+\subsection{Nested Structures}
+
+\begin{enumerate}
+    \item Outer item one
+    \begin{itemize}
+        \item Inner item a
+        \item Inner item b
+        \begin{enumerate}
+            \item Deeply nested item i
+            \item Deeply nested item ii
+        \end{enumerate}
+    \end{itemize}
+    \item Outer item two
+    \begin{align*}
+        f(x) &= x^2 + 2x + 1 \\
+        &= (x+1)^2
+    \end{align*}
+\end{enumerate}
+
+\subsection{Advanced Formatting}
+
+\textbf{Bold text} and \textit{italic text} and \texttt{monospaced text}.
+
+Here's a block with special characters: \$, \#, \%, \&, \_, \{, \}
+
+\section{Conclusion}
+
+This document tests various LaTeX features and should render correctly.
+
+\end{document}
