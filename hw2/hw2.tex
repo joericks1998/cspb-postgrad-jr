@@ -1,0 +1,422 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\newcommand{\sectionbreak}{\clearpage}
+
+
+
+\title{Logic and Reasoning Mastery Workbook 2}
+\author{Joe Ricks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{\Huge I have neither given nor received unauthorized assistance.}
+
+\sectionbreak
+1. (10pts) Before anything else, annotate examples 7 and 8 from page 30. You MUST use
+this EXACT format when showing logical equivalences (and proofs) to get credit for your
+work in this course.
+\bigbreak
+\includegraphics[width=1\textwidth]{/Users/joericks/Desktop/Screenshot 2026-02-02 at 11.34.32 PM.png}
+\bigbreak
+\includegraphics[width=1\textwidth]{/Users/joericks/Desktop/Screenshot 2026-02-02 at 11.54.53 PM.png}
+
+\sectionbreak
+2. (25pts) We will prove the first 5 logical equivalences in Chart 7 page 28
+\medbreak
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item This first one is what Chris calls RBI and it is essential because it converts a conditional into a disjunction. Prove this with just a truth table.
+
+    \[p \to q \equiv \neg p \lor q\]
+
+    Let's structure the truth table as follows:
+    \smallbreak
+    \begin{tabular}{|c|c|c|c|c|p{11cm}|}
+        \hline
+        $p$ & $q$ & $p \to q$ & $\neg p$ & $\neg p \lor q$ & Explaination \\
+        \hline
+        T & T & T & F & T & For this set of truth values,  \\
+        \hline
+        T & F & F & F & F & In the case that we have $p$ true and $q$ false, then $p \to q$ is false, since both negation of p and q are false, so $\neg p \lor q$ is also false. \\
+        \hline
+        F & T & T & T & T & In the case that we have $p$ false and $q$ true, then $p \to q$ is true, and since p is false, $\neg p$ is true, so $\neg p \lor q$ is also true. \\
+        \hline
+        F & F & T & T & T & In the case that we have $p$ false and $q$ false, then $p \to q$ is true, and since p is false, $\neg p$ is true, so $\neg p \lor q$ is also true. \\
+        \hline
+    \end{tabular}
+    \smallbreak
+    Since in all cases the truth values of $p \to q$ and $\neg p \lor q$ are the same, we can conclude that they are logically equivalent.
+    $\hfill \square$
+    \sectionbreak
+    \item Carefully repeat the proof of the following using the method without a truth table
+    from the video. Take note of what tricks Chris uses, as we will need these as we
+    go. (Challenge, can you prove it another way?)
+
+
+    \[p \to q \equiv \neg q \to \neg p\]
+
+    To prove this equivalence, we will use the result from our first proof (RBI), which states that $p \to q \equiv \neg p \lor q$. We will also use this result to express $\neg q \to \neg p$ in a similar form. Using the result from our first proof, we can express $\neg q \to \neg p$ as follows:
+    \begin{align*}
+        p \to q &\equiv \neg p \lor q & \text{From RBI...} \\
+        &\equiv q \lor \neg p & \text{Using the law of communitivity...} \\
+        &\equiv \neg (\neg q) \lor \neg p & \text{Using the double negation law on $q$...} \\
+    \end{align*}
+    Now that we have shown that $p \to q \equiv \neg (\neg q) \lor \neg p$, we can use the result from our first proof again, except substituting $\neg q$ for $p$ and $\neg p$ for $q$. When doing this, we have:
+    \begin{align*}
+        \neg (\neg q) \lor \neg p &\equiv \neg q \to \neg p & \text{Substituting $\neg q$ for $p$ and $\neg p$ for $q$ from our first proof...} \\
+    \end{align*}
+    and thus have shown that $p \to q \equiv \neg q \to \neg p$.
+    $\hfill \square$
+    \sectionbreak
+    \item Third one (hint: RBI works both ways.)
+
+    \[p \lor q \equiv \neg p \to q\]
+    For this proof, we can again use the same substitution method that we used in the previous proof. Recall that $a \to b \equiv \neg a \lor b$ (expressing RBI in terms of $a$ and $b$). First, to set up the substitution, we must express $p \lor q$ in terms of $\neg a \lor b$. Using the double negation laws, we can express $p \lor q$ as follows:
+    \begin{align*}
+        p \lor q &\equiv \neg (\neg p) \lor q & \text{Using the double negation laws on p...} \\
+        &\equiv \neg p \to q & \text{From our first proof (RBI), using substitution..}
+    \end{align*}
+    Thus, we have proved that $p \lor q \equiv \neg p \to q$.
+    $\hfill \square$
+    \sectionbreak
+    \item Fourth one, (think about which rule “flips” conjunctions and disjunctions)
+    \[p \land q \equiv \neg (p \to \neg q) \]
+    For the set up of this proof, we will use DeMorgan's law, which states that $\neg (p \lor q) \equiv \neg p \land \neg q$. Given this, we can set up the begining of our proof by negating both sides of the equivalence using DeMorgan's law. Therefore, we have:
+    \begin{align*}
+        p \land q &\equiv \neg (\neg p \lor \neg q) & \text{By DeMorgan Laws (backwards)}\\
+        &\equiv \neg (\neg (p) \lor (\neg q)) & \text{Note terms in parenthesis we will substitute into the result from our first proof (RBI)...} \\
+        &\equiv \neg (p \to \neg q) & \text{Using the result from the first proof (RBI)...}
+    \end{align*}
+    Thus, we have proved that $p \land q \equiv \neg (p \to \neg q)$.
+    $\hfill \square$
+    \sectionbreak
+    \item Finally, for the fifth one, see if you can do it on your own.
+    \[\neg (p \to q) \equiv p \land \neg q\]
+    Recall that we proved $p \to q \equiv \neg p \lor q$ (i.e RBI). For this expression, let's set up the first equivalance in our proof using our first proof. When we substitute $p \to q$ for $\neg p \lor q$, we have:
+    \begin{align*}
+        \neg (p \to q) &\equiv \neg (\neg p \lor q) & \text{by substituion...} \\
+        &\equiv p \land \neg q & \text{Using DeMorgan's law...}
+    \end{align*}
+    Thus, we have proved that $\neg (p \to q) \equiv p \land \neg q$.
+    $\hfill \square$
+
+\end{enumerate}
+
+\sectionbreak
+
+3. (10pts) We can use Table 6 p.27 to prove new “rules.” Let's prove a logic version of the algebrica version FOIL. You will need to use a compound substitution with an
+equivalence from Table 6 twice. (optional/recommended create a truth table as well).
+\begin{align*}
+    (a \land b) \lor (c \land d) \equiv (a \lor c) \land (b \lor c) \land (a \lor d) \land (b \lor d)
+\end{align*}
+
+To prove this statement, we will use the rules in Table 6. We have
+\begin{align*}
+    (a \land b) \lor (c \land d) &\equiv (c \lor a) \land (c \lor b) \land (d \lor a) \land (d \lor b) & \text{Original Statement, rearranged...} \\
+    &\equiv  ((c \lor a) \land (c \lor b)) \land ((d \lor a) \land (d \lor b)) & \text{First, using laws of associativity...} \\
+    &\equiv  (c \lor (a \land b)) \land (d \lor (a \land b)) & \text{Using the law of distribution, we have...} \\
+\end{align*}
+Now that we have this expression, if we let $S \equiv (a \land b)$, then if we substitute S, we can simplify to:
+\begin{align*}
+    (c \lor (a \land b)) \land (d \lor (a \land b)) &\equiv (c \lor S) \land (d \lor S) & \text{via substitution}\\
+    &\equiv S \lor (c \land d) & \text{Using distributive laws again...} \\
+    &\equiv (a \land b) \lor (c \land d) & \text{Resubstituting the definition of $S$}
+\end{align*}
+Thus, we have proved $(a \land b) \lor (c \land d)$ and $(a \lor c) \land (b \lor c) \land (a \lor d) \land (b \lor d)$ are logically equivalent.
+
+\hfill $\square$
+
+\bigbreak
+Additionally, to validate this proof, we can also use a truth table to show that both sides of the equivalence have the same truth values. We have:
+
+\medbreak
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    $a$ & $b$ & $c$ & $d$ & $(a \lor c) \land (b \lor c) \land (a \lor d) \land (b \lor d)$ & $(a \land b) \lor (c \land d)$\\
+    \hline
+    T & T & T & T & T & T \\
+    \hline
+    T & T & T & F & T & T \\
+    \hline
+    T & T & F & T & T & T \\
+    \hline
+    T & T & F & F & F & F \\
+    \hline
+    T & F & T & T & T & T \\
+    \hline
+    T & F & T & F & T & T \\
+    \hline
+    T & F & F & T & T & T \\
+    \hline
+    T & F & F & F & F & F \\
+    \hline
+    F & T & T & T & T & T \\
+    \hline
+    F & T & T & F & T & T \\
+    \hline
+    F & T & F & T & T & T \\
+    \hline
+    F & T & F & F & F & F \\
+    \hline
+    F & F & T & T & T & T \\
+    \hline
+    F & F & T & F & F & F \\
+    \hline
+    F & F & F & T & F & F \\
+    \hline
+    F & F & F & F & F & F \\
+    \hline
+\end{tabular}
+\medbreak
+As we can see, the truth values for both sides of the equivalence are the same for all possible combinations of truth values for $a$, $b$, $c$, and $d$.
+
+
+
+
+\sectionbreak
+4. (10 pts) Rosen, page 53. Do \#8 as warm-up on your own. Do \#9 below. Add notes
+and insight for full credit.
+
+
+Problem 9 from Rosen page 53:
+\begin{quote}
+    Let P(x) be the statement "x can speak Russian" and let Q(x) be the statement "x knows the computer language C++". Express each of these statements in terms of P(x), Q(x), quantifiers, and logical connectives. The domain of quantifiers consists of all students at your school.
+    \begin{enumerate}[label=(\alph*)]
+        \item There is a student at your school who can speak Russian and who knows C++.
+        \smallbreak
+        Given that P(x) is "x can speak Russian" and Q(x) is "x knows the computer language C++", we can express the above statement as follows:
+        \[\exists x (P(x) \land Q(x)) \]
+        Since we are expressing the statement of the existence of at least one student who can speak Russian AND knows C++, we use the existential quantifier $\exists$ along with the logical conjunction $\land$ to combine the two predicates P(x) and Q(x).
+        \item There is a student at your school who can speak Russian but who doesn’t know C++.
+        \smallbreak
+        Given that P(x) is "x can speak Russian" and Q(x) is "x knows the computer language C++", we can express the above statement as follows:
+        \[\exists x (P(x) \land \neg Q(x)) \]
+        Since we are expressing the statement of the existence of at least one student who can speak Russian AND does NOT know C++, we use the existential quantifier $\exists$ along with the logical conjunction $\land$ to combine the predicate P(x) and the negation of Q(x), denoted as $\neg Q(x)$.
+        \item Every student at your school either can speak Russian or knows C++.
+        \smallbreak
+        Given that P(x) is "x can speak Russian" and Q(x) is "x knows the computer language C++", we can express the above statement as follows:
+        \[\forall x (P(x) \lor Q(x)) \]
+        Since we are expressing the statement that every student at your school either can speak Russian OR knows C++, we use the universal quantifier $\forall$ along with the logical disjunction $\lor$ to combine the two predicates P(x) and Q(x).
+        \item No student at your school can speak Russian or knows C++.
+        \smallbreak
+        Given that P(x) is "x can speak Russian" and Q(x) is "x knows the computer language C++", we can express the above statement as follows:
+        \[\forall x (\neg P(x) \land \neg Q(x)) \]
+        Since we are expressing the statement that no student at your school can speak Russian AND does NOT know C++, we use the universal quantifier $\forall$ along with the logical conjunction $\land$ to combine the negation of P(x), denoted as $\neg P(x)$, and the negation of Q(x), denoted as $\neg Q(x)$.
+    \end{enumerate}
+\end{quote}
+
+
+\sectionbreak
+5. (10pts) \#33 section 1.5, page 67 (add insights and comments for full credit).
+Problem 33 from Rosen page 67:
+\begin{quote}
+    Rewrite each of these statements so that negations appear only within predicates (that is, so that no negation is outside a quantifier or an expression involving logical connectives).
+\end{quote}
+Problems from \#33: 
+\begin{enumerate}[label=(\alph*)]
+    \item $\neg \forall x \forall yP(x,y)$
+    \smallbreak
+    To simplify this expression, we establish what this statement without negation translates to in English. The statement $\forall x \forall y P(x,y)$ translates to "Statement $P(x,y)$ is true for all $x$ and for all $y$." From our textbook, we know that by definition this is also a universal quantification statement. So, when we add negation to the statement $\forall x \forall y P(x,y)$, we are performing negation on a universal quantifier and therefore:
+    \[\neg \forall x \forall yP(x,y) \equiv \exists x \exists y \neg P(x,y)\]
+    $\hfill \square$
+
+    \item $\neg \forall y \exists x P(x,y)$
+    \smallbreak
+    Again, when we express this without negation, the statement $\forall y \exists x P(x,y)$ translates to "For every $y$, there exists an $x$ such that $P(x,y)$ is true." Therefore, the negation $\neg \forall y \exists x P(x,y)$ translates to "It is not true that for every $y$, there exists an $x$ such that $P(x,y)$ is true." This means there exists at least one value of $y$ for which there is no corresponding value of $x$ that makes $P(x,y)$ true. We can express this using the existential quantifier as follows:
+    \[\exists y \forall x \neg P(x,y)\]
+    $\hfill \square$
+
+    \item $\neg \forall y \forall x (P(x,y) \lor Q(x,y))$
+    \smallbreak
+    For this negation, given that we the relation $P(x,y) \lor Q(x,y)$ as nested quantifiers, to simplify our expression we will use DeMorgan's laws. DeMorgan's laws state that:
+    \begin{align*}
+        \neg (p \land q) &\equiv \neg p \lor \neg q \\
+        \neg (p \lor q) &\equiv \neg p \land \neg q
+    \end{align*}
+    In this case, we can use the second DeMorgan law to simplify our expression. With this and from what we proved previously in a) and b) on the negation of universal quantifiers we can simplify the expression to:
+    \[\exists y \exists x (\neg P(x,y) \land \neg Q(x,y));\]
+    and therefore
+    \[\neg \forall y \forall x (P(x,y) \lor Q(x,y)) \equiv \exists y \exists x (\neg P(x,y) \land \neg Q(x,y)).\]
+    $\hfill \square$
+
+    \item $\neg (\exists x \exists y P(x,y) \land \forall x \forall y Q(x,y))$
+    \smallbreak
+    For this statement, we can rewrite it using a combination of DeMorgan's laws as well as what we proved to rewrite statements a) and b). To show this, first let $R(x,y) \equiv \exists x \exists y P(x,y)$ and $S(x,y) \equiv \forall x \forall y Q(x,y)$. When applying these substitutions and DeMorgan's law, we have
+    \begin{align*}
+        \neg (\exists x \exists y P(x,y) \land \forall x \forall y Q(x,y)) &\equiv  \neg(R(x,y) \land S(x,y)) \\
+        &\equiv \neg R(x,y) \lor \neg S(x,y) \text{   by DeMorgan's law} \\
+        &\equiv \neg (\exists x \exists y P(x,y)) \lor \neg (\forall x \forall y Q(x,y)) \text{   resubstituting R(x,y) and S(x,y)'s values} \\
+        &\equiv \forall x \forall y \neg P(x,y) \lor \exists x \exists y \neg Q(x,y)\ \text{    after applying negation to terms} \\
+    \end{align*}
+    Therefore
+    \[ \neg (\exists x \exists y P(x,y) \land \forall x \forall y Q(x,y)) \equiv \forall x \forall y \neg P(x,y) \lor \exists x \exists y \neg Q(x,y)\]
+    $\hfill \square$
+
+    \item $\neg \forall x (\exists x \forall z P(x,y,z) \land \exists z \forall y P(x,y,z))$
+    \smallbreak
+    For (e), we can simplify using the same tools that we used for (d). So, let $A(x,y,z) \equiv \exists x \forall z P(x,y,z)$ and $B(x,y,z) \equiv \exists z \forall y P(x,y,z)$, then we have
+    \begin{align*}
+       \neg \forall x (\exists x \forall z P(x,y,z) \land \exists z \forall y P(x,y,z)) &\equiv \neg \forall x (A(x,y,z) \land B(x,y,z)) \quad \text{Applying substitution...} \\
+       &\equiv \exists x \neg (A(x,y,z) \land B(x,y,z)) \quad \text{first negating for all x...} \\
+       &\equiv \exists x (\neg A(x,y,z) \lor \neg B(x,y,z)) \quad \text{applying DeMorgan's laws...} \\
+       &\equiv \exists x (\forall x \exists z \neg P(x,y,z) \lor \forall z \exists y \neg P(x,y,z))\ \text{resubstituting...}
+    \end{align*}
+    Therefore,
+    \[\neg \forall x (\exists x \forall z P(x,y,z) \land \exists z \forall y P(x,y,z))\equiv \exists x (\forall x \exists z \neg P(x,y,z) \lor \forall z \exists y \neg P(x,y,z))\]
+    $\hfill \square$
+
+\end{enumerate}
+
+\sectionbreak
+6. (35 pts) Now let’s go back to section 1.1. Read the examples on page 11 and 12 to
+see an important computer science application. Do each of \#43 problems and check your
+answers in the back of the book. Add notes and insights.
+
+\begin{quote}
+    43. Find the bitwise OR, bitwise AND, and bitwise XOR of each of these pairs of bit strings.
+\end{quote}
+\textbf{Note}: before finding the answers to the bitwise OR, AND, and XOR of each pair, we will be using the following truth table frequently:
+
+\bigbreak
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x$ & $y$ & $x \land y$ & $x \lor y$ & $x \oplus y$\\
+    \hline
+    0 & 0 & 0 & 0 & 0\\
+    \hline
+    0 & 1 & 0 & 1 & 1\\
+    \hline
+    1 & 0 & 0 & 1 & 1\\
+    \hline
+    1 & 1 & 1 & 1 & 0\\
+    \hline
+\end{tabular}
+
+\bigbreak
+
+As stated in the book, truth values can also be translated into binary zeros and ones, and the definitions of each bitwise operations are (if $x$ and $y$ are binary strings):
+\begin{align*}
+    \text{AND} &:= x \land y\\
+    \text{OR} &:= x \lor y\\
+    \text{XOR} &:= x \oplus y
+\end{align*}
+
+In order to calculate the bitwise AND, OR, and XOR of each pair of bit strings, we will apply the definitions above to each corresponding bit in the strings. We will do this by aligning the two strings vertically and applying the operations bit by bit according to the truth table provided.
+\begin{enumerate}[label=(\alph*)]
+    \item 101 1110, 010 0001
+    \smallbreak
+    \begin{tabular}{ccc}
+        AND & OR & XOR \\
+        \begin{tabular}[t]{c}
+            1 0 1 1 1 1 0 \\
+            0 1 0 0 0 0 1 \\
+            \hline
+            0 0 0 0 0 0 0
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 0 1 1 1 1 0 \\
+            0 1 0 0 0 0 1 \\
+            \hline
+            1 1 1 1 1 1 1
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 0 1 1 1 1 0 \\
+            0 1 0 0 0 0 1 \\
+            \hline
+            1 1 1 1 1 1 1
+        \end{tabular}
+    \end{tabular}
+
+    \item 1111 0000, 1010 1010
+    \smallbreak
+    \begin{tabular}{ccc}
+        AND & OR & XOR \\
+        \begin{tabular}[t]{c}
+            1 1 1 1 0 0 0 0 \\
+            1 0 1 0 1 0 1 0 \\
+            \hline
+            1 0 1 0 0 0 0 0
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 1 1 1 0 0 0 0 \\
+            1 0 1 0 1 0 1 0 \\
+            \hline
+            1 1 1 1 1 0 1 0
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 1 1 1 0 0 0 0 \\
+            1 0 1 0 1 0 1 0 \\
+            \hline
+            0 1 0 1 1 0 1 0
+        \end{tabular}
+    \end{tabular}
+
+    \item 00 0111 0001, 10 0100 1000
+    \smallbreak
+    \begin{tabular}{ccc}
+        AND & OR & XOR \\
+        \begin{tabular}[t]{c}
+            0 0 0 1 1 1 0 0 0 1 \\
+            1 0 0 1 0 0 1 0 0 0 \\
+            \hline
+            0 0 0 1 0 0 0 0 0 0
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            0 0 0 1 1 1 0 0 0 1 \\
+            1 0 0 1 0 0 1 0 0 0 \\
+            \hline
+            1 0 0 1 1 1 1 0 0 1
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            0 0 0 1 1 1 0 0 0 1 \\
+            1 0 0 1 0 0 1 0 0 0 \\
+            \hline
+            1 0 0 0 1 1 1 0 0 1
+        \end{tabular}
+    \end{tabular}
+
+    \item 11 1111 1111, 00 0000 0000
+    \smallbreak
+    \begin{tabular}{ccc}
+        AND & OR & XOR \\
+        \begin{tabular}[t]{c}
+            1 1 1 1 1 1 1 1 1 1 \\
+            0 0 0 0 0 0 0 0 0 0 \\
+            \hline
+            0 0 0 0 0 0 0 0 0 0
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 1 1 1 1 1 1 1 1 1 \\
+            0 0 0 0 0 0 0 0 0 0 \\
+            \hline
+            1 1 1 1 1 1 1 1 1 1
+        \end{tabular}
+        &
+        \begin{tabular}[t]{c}
+            1 1 1 1 1 1 1 1 1 1 \\
+            0 0 0 0 0 0 0 0 0 0 \\
+            \hline
+            1 1 1 1 1 1 1 1 1 1
+        \end{tabular}
+    \end{tabular}
+\end{enumerate}
+
+
+
+\end{document}
