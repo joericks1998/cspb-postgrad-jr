@@ -1,0 +1,395 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\newcommand{\sectionbreak}{\clearpage}
+
+\title{Midterm 1 -- Study Notes\\(Weeks 1, 2 \& 3)}
+\author{Joe Ricks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+%% ============================================================
+%% WEEK 1 -- Logic and Reasoning Mastery Workbook
+%% ============================================================
+
+\section*{Week 1 -- Propositional Logic \& Reasoning}
+
+\subsection*{Reasoning Types}
+
+\begin{tabular}{p{7cm}p{7cm}}
+\textbf{Inductive Reasoning} & \textbf{Deductive Reasoning} \\
+Drawing general conclusions from a limited set of observations. & Using logic to draw conclusions from statements we accept as true. \\
+\textit{Cannot guarantee correctness.} & \textit{Conclusions are certain if premises are true.}
+\end{tabular}
+
+\subsection*{Conditional Statements}
+
+Given a conditional $p \to q$ (``If $p$, then $q$''):
+
+\medbreak
+
+\begin{tabular}{lll}
+\textbf{Name} & \textbf{Form} & \textbf{Example} \\[4pt]
+Original & $p \to q$ & If it rains, the grass is wet. \\
+Converse & $q \to p$ & If the grass is wet, it rained. \\
+Contrapositive & $\neg q \to \neg p$ & If the grass is not wet, it did not rain. \\
+Inverse & $\neg p \to \neg q$ & If it does not rain, the grass is not wet.
+\end{tabular}
+
+\medbreak
+\textbf{Key fact:} A conditional and its contrapositive are logically equivalent. The converse and inverse are logically equivalent to each other, but \textbf{not} to the original.
+
+\subsection*{Logical Connectives}
+
+\begin{tabular}{lcl}
+Negation & $\neg p$ & NOT $p$ \\
+Conjunction & $p \land q$ & $p$ AND $q$ \\
+Disjunction & $p \lor q$ & $p$ OR $q$ \\
+Implication & $p \to q$ & If $p$ then $q$ \\
+Biconditional & $p \leftrightarrow q$ & $p$ if and only if $q$
+\end{tabular}
+
+\subsection*{Truth Table Reference}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg p$ & $p \land q$ & $p \lor q$ & $p \to q$ & $p \leftrightarrow q$ \\
+\hline
+T & T & F & T & T & T & T \\
+T & F & F & F & T & F & F \\
+F & T & T & F & T & T & F \\
+F & F & T & F & F & T & T \\
+\hline
+\end{tabular}
+
+\medbreak
+\textbf{Important:} $p \to q$ is only false when $p$ is true and $q$ is false.
+
+\subsection*{Algebraic Proof: $(-a)(-b) = ab$}
+
+\begin{align*}
+0 &= 0 \cdot 0 & &\text{Property of zeros} \\
+  &= (a - a)(b - b) & &\text{Definition of inverses} \\
+  &= ab - ab - ab + (-a)(-b) & &\text{FOIL} \\
+ab &= (-a)(-b) & &\text{Add $ab$ to both sides, simplify}
+\end{align*}
+
+%% ============================================================
+%% WEEK 2 -- Logic and Reasoning Mastery Workbook 2
+%% ============================================================
+
+\sectionbreak
+\section*{Week 2 -- Logical Equivalences, Quantifiers \& Bitwise Ops}
+
+\subsection*{Key Logical Equivalences (Chart 7, Rosen p.28)}
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{RBI (Really Big Idea):} $p \to q \equiv \neg p \lor q$
+    \item \textbf{Contrapositive:} $p \to q \equiv \neg q \to \neg p$
+    \item $p \lor q \equiv \neg p \to q$
+    \item $p \land q \equiv \neg(p \to \neg q)$
+    \item $\neg(p \to q) \equiv p \land \neg q$
+\end{enumerate}
+
+\medbreak
+\textbf{Proof strategy:} Most of 2--5 follow from applying RBI and substitution. RBI converts conditionals into disjunctions (and vice versa), which is the foundation for the rest.
+
+\subsection*{Negation of Conditionals}
+
+From equivalence \#5 above:
+\[\neg(p \to q) \equiv p \land \neg q\]
+
+In words: the negation of ``if $p$ then $q$'' is ``$p$ is true \textbf{and} $q$ is false.''
+
+\medbreak
+\textbf{Why:} Apply RBI then De Morgan's:
+\begin{align*}
+    \neg(p \to q) &\equiv \neg(\neg p \lor q) & &\text{RBI} \\
+                  &\equiv p \land \neg q & &\text{De Morgan's}
+\end{align*}
+
+This is useful for \textbf{proof by contradiction}: to assume a conditional is false, assume the hypothesis is true and the conclusion is false.
+
+\subsection*{Important Laws (Table 6, Rosen p.27)}
+
+\textbf{De Morgan's Laws:}
+\begin{align*}
+    \neg(p \land q) &\equiv \neg p \lor \neg q \\
+    \neg(p \lor q) &\equiv \neg p \land \neg q
+\end{align*}
+
+\textbf{Distributive Laws:}
+\begin{align*}
+    p \lor (q \land r) &\equiv (p \lor q) \land (p \lor r) \\
+    p \land (q \lor r) &\equiv (p \land q) \lor (p \land r)
+\end{align*}
+
+\textbf{Other Essential Laws:}
+
+\begin{tabular}{ll}
+Double Negation: & $\neg(\neg p) \equiv p$ \\
+Commutative: & $p \land q \equiv q \land p$, \quad $p \lor q \equiv q \lor p$ \\
+Associative: & $(p \land q) \land r \equiv p \land (q \land r)$, \quad same for $\lor$ \\
+Identity: & $p \land T \equiv p$, \quad $p \lor F \equiv p$ \\
+Domination: & $p \lor T \equiv T$, \quad $p \land F \equiv F$ \\
+Idempotent: & $p \land p \equiv p$, \quad $p \lor p \equiv p$ \\
+Absorption: & $p \lor (p \land q) \equiv p$, \quad $p \land (p \lor q) \equiv p$
+\end{tabular}
+
+\subsection*{Logical FOIL}
+
+\[(a \land b) \lor (c \land d) \equiv (a \lor c) \land (b \lor c) \land (a \lor d) \land (b \lor d)\]
+
+Proved by applying distributive law twice (factor using substitution $S = a \land b$).
+
+\subsection*{Quantifiers \& Predicates}
+
+\begin{tabular}{lcl}
+Universal & $\forall x\, P(x)$ & ``$P(x)$ is true for \textbf{all} $x$'' \\
+Existential & $\exists x\, P(x)$ & ``There exists an $x$ such that $P(x)$ is true''
+\end{tabular}
+
+\medbreak
+\textbf{Negation of Quantifiers:}
+\begin{align*}
+    \neg \forall x\, P(x) &\equiv \exists x\, \neg P(x) \\
+    \neg \exists x\, P(x) &\equiv \forall x\, \neg P(x)
+\end{align*}
+
+\textbf{Nested quantifiers:} Negate from left to right, flipping each quantifier:
+\begin{align*}
+    \neg \forall x\, \forall y\, P(x,y) &\equiv \exists x\, \exists y\, \neg P(x,y) \\
+    \neg \forall y\, \exists x\, P(x,y) &\equiv \exists y\, \forall x\, \neg P(x,y)
+\end{align*}
+
+When a connective appears inside, apply De Morgan's after flipping quantifiers:
+\[\neg \forall y\, \forall x\, (P(x,y) \lor Q(x,y)) \equiv \exists y\, \exists x\, (\neg P(x,y) \land \neg Q(x,y))\]
+
+\subsection*{Bitwise Operations}
+
+Given bit strings $x$ and $y$, apply bit-by-bit:
+
+\medbreak
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & $y$ & AND ($x \land y$) & OR ($x \lor y$) & XOR ($x \oplus y$) \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 1 & 1 \\
+1 & 0 & 0 & 1 & 1 \\
+1 & 1 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+
+\medbreak
+\textbf{XOR note:} Returns 1 when bits differ, 0 when they are the same.
+
+%% ============================================================
+%% WEEK 3 -- Proof Techniques & Even/Odd Proofs
+%% ============================================================
+
+\sectionbreak
+\section*{Week 3 -- Proof Techniques \& Even/Odd Proofs}
+
+\subsection*{Definitions}
+
+\begin{tabular}{ll}
+\textbf{Even integer:} & $n$ is even if there exists an integer $k$ such that $n = 2k$ \\
+\textbf{Odd integer:} & $n$ is odd if there exists an integer $k$ such that $n = 2k + 1$
+\end{tabular}
+
+\subsection*{Proof Techniques}
+
+\textbf{1. Direct Proof} ($p \to q$): Assume $p$ is true, show $q$ follows.
+
+\medbreak
+\textbf{2. Proof by Contrapositive} ($\neg q \to \neg p$): Instead of proving $p \to q$, prove the logically equivalent $\neg q \to \neg p$. Useful when starting from $p$ doesn't give a clean setup (e.g.\ dividing by 3 breaks the integer structure).
+
+\medbreak
+\textbf{3. Proof by Contradiction}: Assume $\neg(p \to q) \equiv p \land \neg q$, then derive a logical contradiction. Conclude the original statement must be true.
+
+\medbreak
+\textbf{4. Proof of Equivalence} (biconditional $p \leftrightarrow q$): Must prove \textbf{both} directions:
+\[(p \leftrightarrow q) \equiv (p \to q) \land (q \to p)\]
+Each direction can use any technique (direct, contrapositive, etc.).
+
+\subsection*{Proof Toolkit (for Even/Odd Proofs)}
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Substitution:} Replace a variable with its definition (e.g.\ $n = 2k+1$).
+    \item \textbf{Closure of integers:} The sum, difference, or product of integers is an integer. This justifies renaming expressions like $d + h$ or $2jk + j + k$ as a single integer variable.
+    \item \textbf{Factoring:} Pull out a factor of 2 to match the even/odd definition.
+    \item \textbf{FOIL:} Expand products like $(2j+1)(2k+1) = 4jk + 2j + 2k + 1$.
+    \item \textbf{Use distinct variables:} When two values are both even (or both odd), use \textbf{different} variables for each (e.g.\ $A = 2d$, $B = 2h$, not both using $d$).
+\end{enumerate}
+
+\subsection*{Warm-Up Theorem Results (from HW3)}
+
+\begin{tabular}{lll}
+\textbf{THM} & \textbf{Statement} & \textbf{Result} \\[4pt]
+1 & even $+$ even & even \\
+2 & even $+$ odd & odd \\
+3 & odd $+$ odd & even \\
+4 & even $\times$ even & even \\
+5 & even $\times$ odd & even \\
+6 & odd $\times$ odd & odd
+\end{tabular}
+
+\medbreak
+\textbf{Note:} These results can be \textit{used} in later proofs (e.g.\ ``by Theorem 6, the product of two odd integers is odd'') vs.\ re-deriving using the \textit{techniques}.
+
+\subsection*{Example: Direct Proof (THM 6 -- odd $\times$ odd is odd)}
+
+\begin{tabular}{r@{}l@{\hspace{2cm}}l}
+\multicolumn{2}{l}{Let $A = 2j + 1$, where $j$ is an integer} & def.\ of odd \\[6pt]
+\multicolumn{2}{l}{Let $B = 2k + 1$, where $k$ is an integer} & def.\ of odd \\[6pt]
+$C$ & ${}= A \cdot B$ & premise \\[6pt]
+& ${}= (2j+1)(2k+1)$ & substitution \\[6pt]
+& ${}= 4jk + 2j + 2k + 1$ & FOIL \\[6pt]
+& ${}= 2(2jk + j + k) + 1$ & factoring \\[6pt]
+\multicolumn{2}{l}{Let $h = 2jk + j + k$, then $h$ is an integer} & closure of integers \\[6pt]
+& ${}= 2h + 1$ & substitution \\[6pt]
+\end{tabular}
+
+\medskip
+$\bullet$ $C = 2h + 1$, so by definition $C$ is odd. \hfill $\square$
+
+\subsection*{Example: Proof by Contrapositive}
+
+\textbf{Prove:} If $3n + 7$ is odd, then $n$ is even.
+
+\medbreak
+\textit{Why not direct?} Starting with $3n + 7 = 2k + 1$ gives $n = \frac{2k-6}{3}$, and dividing by 3 prevents cleanly factoring out a 2.
+
+\medbreak
+\textit{Contrapositive:} If $n$ is odd, then $3n + 7$ is even.
+
+\medbreak
+\begin{tabular}{r@{}l@{\hspace{2cm}}l}
+\multicolumn{2}{l}{Let $n = 2a + 1$, where $a$ is an integer} & def.\ of odd \\[6pt]
+$3n + 7$ & ${}= 3(2a + 1) + 7$ & substitution \\[6pt]
+& ${}= 6a + 3 + 7$ & distribution \\[6pt]
+& ${}= 6a + 10$ & addition \\[6pt]
+& ${}= 2(3a + 5)$ & factoring \\[6pt]
+\multicolumn{2}{l}{Let $b = 3a + 5$, then $b$ is an integer} & closure of integers \\[6pt]
+& ${}= 2b$ & substitution \\[6pt]
+\end{tabular}
+
+\medskip
+$\bullet$ $3n+7 = 2b$, so it is even. By contrapositive, if $3n+7$ is odd then $n$ is even. \hfill $\square$
+
+\subsection*{Example: Proof by Contradiction}
+
+\textbf{Prove:} There is no largest integer.
+
+\medbreak
+Assume for contradiction that there exists an integer $z$ such that $z > n$ for all integers $n$.
+
+\medbreak
+Let $n = z + 1$. Since $z$ is an integer, $z + 1$ is also an integer (closure). But then $z > z + 1$, which contradicts the properties of integer addition. \hfill $\square$
+
+%% ============================================================
+%% LOGARITHM REVIEW (from Jacobs, Lessons 3 & 4)
+%% ============================================================
+
+\sectionbreak
+\section*{Logarithm Review (Jacobs, Ch.\ 4)}
+
+\subsection*{Definition}
+
+A \textbf{logarithm} is an exponent. If $y = b^x$, then $x = \log_b y$.
+
+\medbreak
+
+\begin{tabular}{ll}
+\textbf{Binary logarithm (base 2):} & The exponent of 2 that produces the number. \\
+& Example: $\log_2 8 = 3$ because $8 = 2^3$. \\[6pt]
+\textbf{Decimal logarithm (base 10):} & The exponent of 10 that produces the number. \\
+& Example: $\log_{10} 1{,}000{,}000 = 6$ because $1{,}000{,}000 = 10^6$.
+\end{tabular}
+
+\subsection*{Three Laws of Logarithms}
+
+These hold for \textbf{any} base.
+
+\bigbreak
+
+\begin{tabular}{lll}
+\textbf{Operation} & \textbf{Numbers} & \textbf{Logarithms} \\[6pt]
+Multiplication & $a \times b$ & $\log(a \times b) = \log a + \log b$ \\[4pt]
+Division & $a \div b$ & $\log(a \div b) = \log a - \log b$ \\[4pt]
+Powers & $a^n$ & $\log(a^n) = n \cdot \log a$
+\end{tabular}
+
+\bigbreak
+
+In words:
+\begin{itemize}[nosep]
+    \item \textbf{Multiplication} of numbers $\longleftrightarrow$ \textbf{Addition} of their logarithms
+    \item \textbf{Division} of numbers $\longleftrightarrow$ \textbf{Subtraction} of their logarithms
+    \item \textbf{Raising to a power} $\longleftrightarrow$ \textbf{Multiplying} the logarithm by the exponent
+\end{itemize}
+
+\subsection*{Binary Logarithm Table (Base 2)}
+
+\begin{tabular}{r|cccccccccccccc}
+Number & 1 & 2 & 4 & 8 & 16 & 32 & 64 & 128 & 256 & 512 & 1024 \\
+$\log_2$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+\end{tabular}
+
+\medbreak
+\textbf{Examples using the table:}
+
+\begin{tabular}{r@{}l@{\hspace{2cm}}l}
+$8 \times 16$ & ${}= 128$ & $\log_2 8 + \log_2 16 = 3 + 4 = 7 = \log_2 128$ \\[4pt]
+$512 \div 64$ & ${}= 8$ & $\log_2 512 - \log_2 64 = 9 - 6 = 3 = \log_2 8$ \\[4pt]
+$8^4$ & ${}= 4096$ & $4 \cdot \log_2 8 = 4 \times 3 = 12 = \log_2 4096$
+\end{tabular}
+
+\subsection*{Decimal Logarithm Table (Base 10)}
+
+\begin{tabular}{r|cccccccccc}
+Number & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+$\log_{10}$ & 0 & 0.30 & 0.48 & 0.60 & 0.70 & 0.78 & 0.85 & 0.90 & 0.95 & 1
+\end{tabular}
+
+\medbreak
+\begin{tabular}{r|ccccccccc}
+Number & $10^1$ & $10^2$ & $10^3$ & $10^4$ & $10^5$ & $10^6$ & $10^7$ & $10^8$ & $10^9$ \\
+$\log_{10}$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
+\end{tabular}
+
+\subsection*{Logarithms with Scientific Notation}
+
+To find the logarithm of a number in scientific notation, add the log of the coefficient to the log of the power of 10:
+\[\log(a \times 10^n) = \log a + \log 10^n = \log a + n\]
+
+\textbf{Example:} $\log(2 \times 10^5) = \log 2 + 5 = 0.30 + 5 = 5.30$
+
+\medbreak
+
+Works in reverse too --- given a logarithm, split into integer + decimal parts:
+
+\textbf{Example:} $\log = 7.6 \Rightarrow 0.60 + 7$. From the table, $0.60 = \log 4$ and $7 = \log 10^7$, so the number is $4 \times 10^7$.
+
+\subsection*{Approximating Large Powers}
+
+Use the power rule to estimate values without a calculator:
+
+\medbreak
+\textbf{Example:} Find $9^9$.
+\begin{align*}
+    \log 9 &= 0.954 \\
+    \log(9^9) &= 9 \times 0.954 = 8.586 \\
+    8.586 &= 0.586 + 8
+\end{align*}
+So $9^9 \approx 3.85 \times 10^8 = 385{,}000{,}000$ (a 9-digit number).
+
+\end{document}
