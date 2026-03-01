@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\qed}{$\hfill \square$}
+
+
+\title{Mastery Workbook 4}
+\author{Joe Ricks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{\Huge I have neither given nor received unauthorized assistance.}
+
+\sectionbreak
+
+\textbf{\#1}
+
+\bigbreak
+
+\begin{enumerate}[label=\alph*.]
+    \item Calculate $7^3 \bmod 5$ by calculating $7^3$ and then using a calculator to find the value using that result.
+
+    \bigbreak
+
+    When using the calculator, $7^3 = 343$. And then when applying $343 \mod 5 = 3$
+
+    \bigbreak
+
+    \item What is $7 \bmod 5$?
+
+    \bigbreak
+
+    $7 \bmod 5 = 2$
+
+    \bigbreak
+
+    \item Rewrite $7^3 \bmod 5$ as $(7 \cdot 7 \cdot 7) \bmod 5$, now use the rule from page 242 and rewrite this to use what you found in (b) to find the answer. Show all steps.
+
+    \bigbreak
+
+    According to corollary \#2 on page 242 of Rosen:
+
+    \medbreak
+
+    Let $m$ be a positive integer and let $a$ and $b$ be integers, then:
+    \begin{align*}
+        (a + b) \bmod m &= ((a \bmod m) + (b \bmod m)) \bmod m \\[6pt]
+        (a \cdot b) \bmod m &= ((a \bmod m) \cdot (b \bmod m)) \bmod m
+    \end{align*}
+
+    So, starting by breaking $7^3 \bmod 5$ into $(7\cdot 7\cdot 7) \bmod 5$, we have
+    \bigbreak
+
+    \begin{tabular}{r@{}l@{\hspace{2cm}}l}
+        $(7\cdot 7\cdot 7) \bmod 5$ & ${}= 7^2 \cdot 7 \bmod 5$ & rewriting as a product \\[6pt]
+        & ${}= ((7^2 \bmod 5)(7 \bmod 5))\bmod 5$ & using Corollary 2 \\[6pt]
+        & ${}= (((7 \bmod 5)(7 \bmod 5) \bmod 5)(7 \bmod 5))\bmod 5$ & using Corollary 2 and substitution \\[6pt]
+        & ${}= (((2)(2) \bmod 5)(2))\bmod 5$ & definition of a modulo \\ && and substitution ($7 \bmod 5 = 2$) \\[6pt]
+        & ${}= ((4 \bmod 5)(2))\bmod 5$ & simplifying using multiplication \\[6pt]
+        & ${}= ((4)(2))\bmod 5$ & simplifying using modulo definition \\[6pt]
+        & ${}= 8 \bmod 5$ & by multiplication \\[6pt]
+        & ${}= 3$ & by definition of a modulo
+    \end{tabular}
+
+    \item Find your own simple example of breaking up a large number and using mod rules to calculate ``mod'' without using a calculator. Work out your example on this page. Post your answer on Piazza too!
+
+    \bigbreak
+
+    For this exersize, let's simplify the expression $1000 \bmod 3$. We know (by definition but also from scientific notation) that $1000 = 10^3$. So from here:
+    \bigbreak
+    \begin{tabular}{r@{}l@{\hspace{2cm}}l}
+        $1000\bmod 3 $ & $= 10^3 \bmod 3$ & starting by substituting $1000= 10^3$ \\[6pt]
+        & $= 10^2 \cdot 10 \bmod 3$ & commutativity under multiplication \\[6pt]
+        & $= ((10^2 \bmod 3)(10 \bmod 3))\bmod 3$ & using Corollary 2 \\[6pt]
+         & $= (((10 \bmod 3)(10 \bmod 3)\bmod 3)(10 \bmod 3))\bmod 3$ & using Corollary 2 and substitution \\[6pt]
+         & $= (((1)(1)\bmod 3)(1))\bmod 3$ & definition of a modulo \\ && and substitution ($10 \mod 3 = 1$) \\[6pt]
+         & $= ((1 \bmod 3))\bmod 3$ & simplifying using multiplication and factoring \\[6pt]
+         & $= 1 \bmod 3$ & simplifying using modulo definition \\[6pt]
+    \end{tabular}
+    and since $1 \bmod 3 = 1$, we have determined $1000\bmod 3 = 1$.
+
+\end{enumerate}
+\sectionbreak
+
+2. For all positive real numbers $a$ and $b$ is $(\log_{10} a)^b = b\log_{10} a$.
+\bigbreak
+
+We will \textbf{disprove} this by counterexample. To do this, let us pick an $a=10$ and $b=2$, then we have
+\bigbreak
+\begin{tabular}{r@{}l@{\hspace{2cm}}l}
+    $2\cdot \log_{10}(10)$ & $= 2\cdot 1 = 2$ & by subtitution and logarithmic arithmatic ($\log_{10}(10) = 1$)
+\end{tabular}
+\medbreak
+and
+\medbreak
+\begin{tabular}{r@{}l@{\hspace{2cm}}l}
+    $(\log_{10}(10))^2$ & $= 1^2 = 1$ & by subtitution and logarithmic arithmatic ($\log_{10}(10) = 1$)
+\end{tabular}
+\bigbreak
+and we know that $2 \neq 1$, therefore we have shown by the counterexample where $a=10$ and $b=2$, $(\log_{10} a)^b \neq b\log_{10} a$. Thus, $(\log_{10} a)^b \neq b\log_{10} a$ for all positive real numbers $a$ and $b$.
+\end{document}
