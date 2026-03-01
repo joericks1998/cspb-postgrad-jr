@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\qed}{$\hfill \square$}
+
+
+\title{Mastery Workbook 5}
+\author{Joe Ricks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{\Huge I have neither given nor received unauthorized assistance.}
+
+\sectionbreak
+
+\textbf{\#1 (10 pts)}
+
+\bigbreak
+
+Look up the RSA algorithm and write 3 specific questions or observations you have about how it works.
+
+\bigbreak
+
+\begin{enumerate}
+    \item
+
+    \bigbreak
+
+    \item
+
+    \bigbreak
+
+    \item
+
+\end{enumerate}
+
+\sectionbreak
+
+\textbf{\#2 (30 pts)}
+
+\bigbreak
+
+Summarize essential definitions and concepts from Sec. 4.1 - 4.3.
+
+\bigbreak
+
+
+
+\sectionbreak
+
+% Additional page for Question 2 summary
+\textbf{\#2 (continued)}
+
+\bigbreak
+
+
+
+\sectionbreak
+
+\textbf{\#3 (10 pts)}
+
+\bigbreak
+
+Read ``The Sieve of Eratosthenes'' on page 259. Notice it uses THM 2, when it says ``note that the composite integers not exceeding 100 must have a prime factor not exceeding 10.''
+
+\bigbreak
+
+\begin{enumerate}[label=\Alph*.]
+    \item Consider Theorem 2 page 258 - show inductively that it is true with some examples.
+
+    \bigbreak
+
+
+
+    \bigbreak
+
+    \item Re-Prove Theorem 2 page 258 in your own words, using our proof structure for this proof by contradiction.
+
+    \bigbreak
+
+
+
+\end{enumerate}
+
+\sectionbreak
+
+\textbf{\#4 (10 pts)}
+
+\bigbreak
+
+Recall that we can think of modulo in terms of scoops and cups. The Euclidean Algorithm can also apply to scoops and cups and solves the question: ``Given 2 measuring scoops, of $a$ cups and $b$ cups, what is the smallest measure in cups that can be made?''
+
+\bigbreak
+
+You must bake a cake and need to measure exactly 1 cup. Can you make the cake given:
+
+\bigbreak
+
+\begin{enumerate}[label=\alph*.]
+    \item 2 scoops measuring 17 and 88?
+
+    \bigbreak
+
+
+
+    \bigbreak
+
+    \item 2 scoops measuring 35 and 88?
+
+    \bigbreak
+
+
+
+    \bigbreak
+
+    \item 2 scoops measuring 37 and 53?
+
+    \bigbreak
+
+
+
+\end{enumerate}
+
+\sectionbreak
+
+\textbf{\#5 (10 pts)}
+
+\bigbreak
+
+Following the Square and Mod video, create a ``Square and Mod Chart'' for powers of 5 mod 17.
+
+\bigbreak
+
+Show some EVIDENCE OF THE PROCESS you are using to get the values below.
+
+\bigbreak
+
+\begin{align*}
+5^0 \bmod 17 &= \\[6pt]
+5^1 \bmod 17 &= \\[6pt]
+5^2 \bmod 17 &= \\[6pt]
+5^4 \bmod 17 &= \\[6pt]
+5^8 \bmod 17 &= \\[6pt]
+5^{16} \bmod 17 &= \\[6pt]
+5^{32} \bmod 17 &= \\[6pt]
+5^{64} \bmod 17 &= \\[6pt]
+5^{128} \bmod 17 &= \\[6pt]
+5^{256} \bmod 17 &=
+\end{align*}
+
+\sectionbreak
+
+\textbf{\#6 (10 pts)}
+
+\bigbreak
+
+Use the chart and the Square 'n Mod method from the video to find:
+
+\bigbreak
+
+\begin{itemize}
+    \item $5^{270} \bmod 17$
+
+    \bigbreak
+
+
+
+    \bigbreak
+
+    \item $5^{186} \bmod 17$
+
+    \bigbreak
+
+
+
+    \bigbreak
+
+    \item $5^{411} \bmod 17$
+
+    \bigbreak
+
+
+
+\end{itemize}
+
+\sectionbreak
+
+\textbf{\#7 (10 pts)}
+
+\bigbreak
+
+Choose an FME algorithm to code:
+\begin{itemize}
+    \item Book Version
+    \item Sriram's Version
+    \item Your own based on Square 'n Mod
+\end{itemize}
+
+\bigbreak
+
+Briefly, explain why you chose which algorithm you did.
+
+\bigbreak
+
+
+
+\bigbreak
+
+Include a screenshot of your COMMENTED code below:
+
+\bigbreak
+
+% \includegraphics[width=\textwidth]{fme_code.png}
+
+\sectionbreak
+
+\textbf{\#8 (10 pts)}
+
+\bigbreak
+
+To motivate our use of Fast Modular Exponentiation FME, let's do a comparison of two ways we can calculate $a^n \bmod m$.
+
+\bigbreak
+
+Write a new function called NOT\_FME that returns the result of $a^n \bmod m$, using just the standard exponent calculation and the built in Python Mod function \%.
+
+\bigbreak
+
+Then use the Python function pow(), which calculates the same result using FME.
+
+\bigbreak
+
+Do your own informal investigation to see if FME has a greater impact on the runtime when $n$ is getting large or when $a$ is getting large.
+
+\bigbreak
+
+\textbf{Summary of Results:}
+
+\bigbreak
+
+
+
+\end{document}
